@@ -1,3 +1,4 @@
-var name = process.argv[2];
+var args = require("minimist")(process.argv.slice(2),{string:"name"});
+var name = args.name;
 
 console.log("welcome home "+ name);
