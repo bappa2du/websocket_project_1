@@ -1,1 +1,1 @@
-console.log("welcome home")
+process.stdout.write("welcome home");
