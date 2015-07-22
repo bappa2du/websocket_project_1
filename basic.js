@@ -2,18 +2,20 @@ function printHelp(){
     console.log("basic.js (c) Iftakhar");
     console.log("");
     console.log("usage:");
-    console.log("--help      print this help");
-    console.log("--name      say hello to {NAME}");
+    console.log("--help          print this help");
+    console.log("--file={NAME}   read the fale of {NAME} nd output");
     console.log("");
 }
 
-var args = require("minimist")(process.argv.slice(2),{string:"name"});
+var args = require("minimist")(process.argv.slice(2),{string:"file"});
 
-if(args.help || !args.name){
+if(args.help || !args.file){
     printHelp();
-    process.exit();
+    process.exit(1);
 }
 
-var name = args.name;
+var hello = require("./helloworld.js");
 
-console.log("welcome home "+ name);
+var contents = hello.say(args.file);
+
+console.log(contents);
